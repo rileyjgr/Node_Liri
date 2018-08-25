@@ -52,44 +52,33 @@ inquirer.prompt([
 
 //Pulls user data
   if (uRd) {
-   axios.get('https://www.reddit.com/u/' + userName + 'top.json?count=2%27')
+    console.log("==========Start user data==========")
+    axios.get('https://www.reddit.com/u/' + userName + '/top.json?count=2%27')
    .then(res => console.log(res.data.data.children))
-
    .catch(err => console.log(err.response));
+    console.log("==========End user data==========")
   }
 
 //Pulls subreddit data
 if (sRd) {
-    axios.get('https://www.reddit.com/r/' + subReddit + 'top.json?count=2%27')
+    console.log("==========Start SubReddit data==========")
+
+    axios.get('https://www.reddit.com/r/' + subReddit + '/top.json?count=2%27')
     .then(res => console.log(res.data.data.children))
 
     .catch(err => console.log(err.response));
+
+    console.log("==========End SubReddit data==========")
   }
 
 //Pulls data from the front page of reddit
   if (getFrontPage){
+    console.log("==========Start FrontPage data==========")
     axios.get('https://www.reddit.com/top.json?count=2')
     .then(res => console.log(res.data.data.children))
 
-  .catch(err => console.log(err.response));
+    .catch(err => console.log(err.response));
+    console.log("==========End FrontPage data==========")
   }
 });
 
-
-/*   if (getFrontPage = true){
-    request
-    .get('')
-    .on('response', function(response){
-      console.log(response.statusCode) //200
-      console.log(response.headers['content-type'])
-    })
-    console.log();
-  } */
-/*    request(r.getHot().map(post => post.title), (function(error, response, body) {
-      console.log('error:', error); // Print the error if one occurred
-      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-      console.log('body:', body); // Print the HTML for the Google homepage.
-    }).catch(function(error){
-      console.log("DENIED MOTHAFUCKER");
-
-  })); */
