@@ -1,15 +1,17 @@
+require("dotenv").config();
+
 'use strict';
 
 const snoowrap = require('snoowrap');
 
 // For more information on getting credentials, see here: https://github.com/not-an-aardvark/reddit-oauth-helper
 
-const r = new snoowrap({
-  userAgent: 'put your user-agent string here',
+exports.reddit =  {
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
   clientId: process.env.REDDIT_ID,
   clientSecret: process.env.REDDIT_SECRET,
-  // refreshToken: 'put your refresh token here' not sure if this is needed
-});
+  refreshToken: 'temporary'
+}
 
 console.log('this is loaded');
 
