@@ -2,49 +2,50 @@ require("dotenv").config();
 
 
 // inquirer for prompts
-var inquirer = require('inquirer');
+let inquirer = require('inquirer');
 // node wrapper for reddit
-var snoowrap = require('snoowrap');
+let snoowrap = require('snoowrap');
 //requests
-var request = require('request');
-var keys = require('./keys');
-
-var reddit = new reddit(keys.reddit);
-
-// Pull front page reddit
+let request = require('request');
+const keys = require('./keys');
+const id = keys.reddit;
+// const id = new keys.reddit; this one doesnt work? why??!? ITS NOT A CLASS!!!!!!!!!
+// Pull input from inquirer to display reddit user content.
 
 inquirer.prompt([
-
   {
     type: "input",
     name: "name",
     message: "What is your Reddit Username?"
-  }])
-  .then(function(redditUser){
+  }
+  ]).then(function(redditUser){
+
+  // this isnt pulling from snoowrap
+
   r.getSubmission(redditUser.name).author.name;
   console.log(JSON.stringify(data, null, 2));
-})
+// console.log('============Loaded user Content==================');
+});
 
-console.log('it works');
-/*   {
+
+console.log('============Loaded user Content==================');
+
+// add implemtation to pull stuff from users favorite subreddit.
+/*
+inquirer.prompt([
+  {
     type: "input",
-    name: "FavoriteSubs",
+    name: "subReddit",
     message: "What is your favorite Subreddit?"
-  }
+  }]).then(function(subReddit){
+  r.getSubreddit(subReddit.name);
+  console.log(JSON.stringify(data, null, 2));
+
+console.log('============Loaded subreddit Content==================');
 
 
-let redditUser =
 
+});
 
-let redditUser = process.argv[2];
-
-console.log(redditUser);
-
-
-let redditType = process.argv[3];
-
-r.getUser(redditUser);
-
-r.getSubreddit(redditType). // eh wtf?
-
+console.log('============Loaded subreddit Content==================');
  */
